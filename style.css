@@ -1,0 +1,271 @@
+:root {
+  --primary-clr: #fc556f;
+  --text-color: #333;
+  --secondary-clr: #fd9c84;
+  --gradient-clr: linear-gradient(
+    to right,
+    var(--primary-clr),
+    var(--secondary-clr)
+  );
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden !important;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: #000;
+}
+
+img:not([hidden]),
+audio:not([hidden]) {
+  display: block;
+  max-width: 100%;
+}
+input,
+button {
+  font: inherit;
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+.player {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+  margin-left: 0px !important;
+}
+
+.player .icon-pause {
+  display: none;
+}
+
+.player.playing .icon-pause {
+  display: inline-block;
+}
+
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  padding: 16px 16px 14px;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  width: 320px;
+  max-width: 320px;
+  border-bottom: 0px solid #000;
+  
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+header h4 {
+  color: var(--primary-clr);
+  font-size: 12px;
+}
+
+header h2 {
+  color: #f7f7f7;
+  font-size: 20px;
+}
+
+/* CD */
+.cd {
+  display: flex;
+  margin: auto;
+  width: 120px;
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover;
+  margin: auto;
+}
+
+/* CONTROL */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 18px 0 8px 0;
+}
+
+.control .btn {
+  color: #666;
+  padding: 18px;
+  font-size: 18px;
+  transition: all 0.1s linear;
+}
+
+.control .btn.active {
+  color: var(--primary-clr);
+}
+
+.control .btn-toggle-play {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-clr);
+}
+
+.control .btn-prev:active,
+.control .btn-next:active {
+  color: var(--primary-clr);
+}
+
+.progress {
+  cursor: pointer;
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  background-color: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 20px;
+  position: relative;
+  z-index: 5;
+}
+
+/* .progress::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: var(--before-width, 0);
+  height: 100%;
+  background: var(--gradient-clr);
+  z-index: -2;
+}
+
+.progress::after {
+  position: absolute;
+  content: '';
+  width: 1em;
+  height: 1em;
+  border-radius: 2em;
+  background: var(--gradient-clr);
+  position: absolute;
+  left: var(--after-left, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+} */
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 6px;
+  background-color: var(--primary-clr);
+  cursor: pointer;
+}
+
+/* PLAYLIST (this is not currently used in this version)*/
+.playlist {
+  margin-top: 408px;
+  padding: 12px;
+  display:none;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.song.active {
+  background: var(--gradient-clr);
+}
+
+.song:active {
+  opacity: 0.8;
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+  color: #fff;
+}
+
+.song .thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 0 8px;
+}
+
+.song .body {
+  flex: 1;
+  padding: 0 16px;
+}
+
+.song .title {
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.song .author {
+  font-size: 12px;
+  color: #999;
+}
+
+.song .option {
+  padding: 16px 8px;
+  color: #999;
+  font-size: 18px;
+}
